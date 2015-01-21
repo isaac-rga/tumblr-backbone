@@ -1,23 +1,23 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
+    'backbone',
+    'auth'
 ], function(
     $,
     _,
-    Backbone
+    Backbone,
+    Auth
 ){
 
     'use strict';
 
-    // go to https://www.tumblr.com/oauth/apps and create an app in order to get an api key
-    var TUMBLR_API_KEY = 'YOU NEED TO REQUEST THIS'; 
     var TumblrPost = Backbone.Model.extend();
 
     var TumblrPosts = Backbone.Collection.extend({
         model: TumblrPost,
         url: function(){
-            return 'http://api.tumblr.com/v2/blog/wowgreat.tumblr.com/posts?api_key=' + TUMBLR_API_KEY;
+            return 'http://api.tumblr.com/v2/blog/wowgreat.tumblr.com/posts?api_key=' + Auth.API_KEY;
         },
         // jsonp
         sync: function(method, model, options) {
