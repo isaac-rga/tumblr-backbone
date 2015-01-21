@@ -13,6 +13,4 @@ requirejs.config({
     }
 });
 
-require(['app'], function(){
-    console.log('app!');
-});
+require(['app']);
