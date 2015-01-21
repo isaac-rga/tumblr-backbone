@@ -4,7 +4,7 @@ This is a simple demonstration of how to use Tumblr as the backend for a backbon
 ## Notes
 This example focuses on grabbing data from the api. We're only displaying photo posts and the data is shown without styling. 
 
-For this example to work, you need to get a tumblr API key. Go to [https://www.tumblr.com/oauth/apps][register] and create an app. Since we're only retrieving content, the urls are not terribly important (anything will work as long as it is a valid url). Once the app is created, grab the OAuth Consumer Key you've been given and replace it in the variable `TUMBLR_API_KEY` at the top of main.js
+For this example to work, you need to get a tumblr API key. Go to [https://www.tumblr.com/oauth/apps][register] and create an app. Since we're only retrieving content, the urls are not terribly important (anything will work as long as it is a valid url). Once the app is created, duplicate the file build/js/auth.sample.js and rename it to auth.js. Then grab the OAuth Consumer Key you've been given and replace it in the variable `API_KEY` in that file 
 
 ## TODO
 
