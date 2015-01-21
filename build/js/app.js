@@ -2,20 +2,20 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'auth'
+    'auth',
+    'model/post'
 ], function(
     $,
     _,
     Backbone,
-    Auth
+    Auth,
+    Post
 ){
 
     'use strict';
 
-    var TumblrPost = Backbone.Model.extend();
-
     var TumblrPosts = Backbone.Collection.extend({
-        model: TumblrPost,
+        model: Post,
         url: function(){
             return 'http://api.tumblr.com/v2/blog/wowgreat.tumblr.com/posts?api_key=' + Auth.API_KEY;
         },
