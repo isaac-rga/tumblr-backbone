@@ -2,43 +2,21 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'auth',
-    'model/post'
+    'collection/posts'
 ], function(
     $,
     _,
     Backbone,
-    Auth,
-    Post
+    PostCollection
 ){
 
     'use strict';
-
-    var TumblrPosts = Backbone.Collection.extend({
-        model: Post,
-        url: function(){
-            return 'http://api.tumblr.com/v2/blog/wowgreat.tumblr.com/posts?api_key=' + Auth.API_KEY;
-        },
-        // jsonp
-        sync: function(method, model, options) {
-            return $.ajax(_.extend({
-                type: 'GET',
-                dataType: 'jsonp',
-                url: this.url(),
-                processData:true
-            }, options));
-        },
-
-        parse:function(r){
-            return r.response.posts;
-        }
-    });
 
     var TumblrBlog = Backbone.Model.extend({
         POSTS_FETCHED: 'tumblrBlog:postsFetched',
         initialize:function(){
             _.bindAll(this, 'onPostsFetched');
-            this.posts = new TumblrPosts();
+            this.posts = new PostCollection();
         },
 
         fetch:function(){
