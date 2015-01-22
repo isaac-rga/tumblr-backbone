@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="lib/css/mocha.css">
+</head>
+<body>
+  <div id="mocha"></div>
+  <script src="lib/js/mocha.js"></script>
+  <script src="lib/js/chai.js"></script>
+  <script>
+    mocha.setup('bdd');
+    var expect = chai.expect;
+
+    describe('sum', function(){
+        it('should be correct', function(){
+            expect(1 + 1).to.equal(2);
+        });
+    });
+    mocha.run();
+  </script>
+</body>
+</html>
