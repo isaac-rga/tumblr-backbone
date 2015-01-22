@@ -10,7 +10,7 @@ activate(){
 }
 
 start_server(){
-    (cd build
+    (cd build/src
     python -m SimpleHTTPServer)
 }
 

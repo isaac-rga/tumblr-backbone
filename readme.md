@@ -5,7 +5,7 @@ This is a simple demonstration of how to use Tumblr as the backend for a backbon
 This example focuses on grabbing data from the api. We're only displaying photo posts and the data is shown without styling. 
 
 ## How to run
-1. Start a server in the build folder. Alternatively you can use the bash function `start_server` in scripts/util.sh (Have a look at my post [project specific dotfiles][psd] if you want to find out more about that file)
+1. Start a server in the `build/src` folder. Alternatively you can use the bash function `start_server` in scripts/util.sh (Have a look at my post [project specific dotfiles][psd] if you want to find out more about that file)
 2. For this example to work, you need to get a tumblr API key:
     - Go to [https://www.tumblr.com/oauth/apps][register] and create an app. Since we're only retrieving content, the urls are not terribly important (anything will work as long as it is a valid url).
     - Once the app is created, duplicate the file build/js/auth.sample.js and rename it to auth.js. 
