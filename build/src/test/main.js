@@ -12,6 +12,7 @@ requirejs.config({
 
 require(['require-config'], function(){
     mocha.setup('bdd');
+    expect = chai.expect;
     require(['spec/model/post'],function(){
         mocha.run(); 
     });
