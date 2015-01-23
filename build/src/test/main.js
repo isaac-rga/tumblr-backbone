@@ -6,14 +6,30 @@ requirejs.config({
     // these need to be relative to the app
     paths:{
         'test': '../test/',
-        'spec' : '../test/spec/'
-    } 
+        'spec': '../test/spec/',
+        'mocha': '../test/lib/mocha',
+        'chai': '../test/lib/chai'
+    },
+
+    shim:{
+        'mocha':{exports:'mocha'}
+    }
 });
 
-require(['require-config'], function(){
+require([
+    'mocha',
+    'chai',
+    'require-config'
+], function(
+    mocha, 
+    chai
+){
     mocha.setup('bdd');
     expect = chai.expect;
-    require(['spec/model/post'],function(){
+    require([
+        'spec/model/post',
+        'spec/model/blog'
+    ],function(){
         mocha.run(); 
     });
 });
