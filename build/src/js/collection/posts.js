@@ -2,13 +2,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'auth',
+    'config',
     'model/post'
 ], function(
     $,
     _,
     Backbone,
-    Auth,
+    Config,
     Post
 ){
 
@@ -19,7 +19,7 @@ define([
         model: Post,
 
         url: function(){
-            return 'http://api.tumblr.com/v2/blog/wowgreat.tumblr.com/posts?api_key=' + Auth.API_KEY;
+            return Config.API_URL;
         },
 
         // jsonp
