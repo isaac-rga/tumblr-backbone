@@ -31,7 +31,8 @@ require([
     expect = chai.expect;
     require([
         'spec/model/post',
-        'spec/model/blog'
+        'spec/model/blog',
+        'spec/collection/posts'
     ],function(){
         mocha.run(); 
     });
