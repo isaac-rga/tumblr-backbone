@@ -8,7 +8,8 @@ requirejs.config({
         'test': '../test/',
         'spec': '../test/spec/',
         'mocha': '../test/lib/mocha',
-        'chai': '../test/lib/chai'
+        'chai': '../test/lib/chai',
+        'sinon': '../test/lib/sinon'
     },
 
     shim:{
@@ -19,10 +20,12 @@ requirejs.config({
 require([
     'mocha',
     'chai',
+    'sinon',
     'require-config'
 ], function(
     mocha, 
-    chai
+    chai,
+    sinon
 ){
     mocha.setup('bdd');
     expect = chai.expect;
