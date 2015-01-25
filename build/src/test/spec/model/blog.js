@@ -7,32 +7,25 @@ define([
     'use strict';
 
     describe('blog model', function(){
-
         beforeEach(function(){
-            // stub out jquery ajax to return 2 posts
-            sinon.stub($, "ajax").yieldsTo('success', {
-                response:{
-                    posts:[{id:1}, {id:2}]
-                }
-            });
-        });
-
-        afterEach(function(){
-            $.ajax.restore();
+            this.bm = new BlogModel();
+            this.bm.posts.models =[1, 2];
+            var self = this;
+            sinon.stub(this.bm, 'fetch', function(){
+                self.bm.onPostsFetched(); 
+            }); 
         });
 
         it('triggers POSTS_FETCHED when posts have been retrieved', function(){
             var onPostsFetchedSpy = sinon.spy();
-            var bm = new BlogModel(); 
-            bm.on(bm.POSTS_FETCHED, onPostsFetchedSpy);
-            bm.fetch();
+            this.bm.on(this.bm.POSTS_FETCHED, onPostsFetchedSpy);
+            this.bm.fetch();
             expect(onPostsFetchedSpy.calledOnce).to.be.true();
         });
 
         it('returns the correct number of posts', function(){
-            var bm = new BlogModel();
-            bm.fetch();
-            expect(bm.getPosts().length).to.equal(2);
+            this.bm.fetch();
+            expect(this.bm.getPosts().length).to.equal(2);
         });
     });
 
