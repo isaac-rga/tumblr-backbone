@@ -32,7 +32,8 @@ require([
     require([
         'spec/model/post',
         'spec/model/blog',
-        'spec/collection/posts'
+        'spec/collection/posts',
+        'spec/view/post'
     ],function(){
         mocha.run(); 
     });
